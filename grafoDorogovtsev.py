@@ -31,13 +31,4 @@ def grafoDorogovtsev(numeroNodos):
 
   return g
 
-tareaGrafos = {1:30, 2: 100, 3: 500}
-
-for i in range(1,4):
-  nodosAgenerar = tareaGrafos[i]
-
-  grafoDorogovtsev_ = grafoDorogovtsev(nodosAgenerar)
-
-  grafoDorogovtsev_.generarArchivoGV('{} {}'.format('Dorogovtsev',str(i)))
-
 

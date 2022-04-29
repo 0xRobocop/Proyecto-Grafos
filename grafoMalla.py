@@ -22,12 +22,4 @@ def grafoMalla(m, n, dirigido=False):
     
   return g
 
-tareaGrafos = {1:(6,5), 2: (20,5), 3: (20,25)}
 
-for i in range(1,4):
-  base = tareaGrafos[i][0]
-  altura = tareaGrafos[i][1]
-
-  grafoMalla_ = grafoMalla(base,altura)
-
-  grafoMalla_.generarArchivoGV('{} {}'.format('Malla',str(i)))

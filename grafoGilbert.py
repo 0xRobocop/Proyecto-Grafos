@@ -17,15 +17,6 @@ def grafoGilbert(n, probabilidad):
  
   return g
 
-tareaGrafos = {1:(30,0.02), 2: (100,0.02), 3: (500,0.02)}
 
-for i in range(1,4):
-  nodosAgenerar = tareaGrafos[i][0]
-  probabilidad = tareaGrafos[i][1]
-
-  grafoGilbert_ = grafoGilbert(nodosAgenerar,probabilidad)
-
-  grafoGilbert_.generarArchivoGV('{} {}'.format('Gilbert',str(i)))
-  
 
 

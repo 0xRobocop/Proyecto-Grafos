@@ -47,12 +47,3 @@ def randomArray(size):
 
   return resultado
   
-
-tareaGrafos = {1:(30,9), 2: (100,9), 3: (500,9)}
-
-for i in range(1,4):
-  nodosAgenerar = tareaGrafos[i][0]
-  aristasG = tareaGrafos[i][1]
-  grafoBarabasi_ = grafoBarabasi(nodosAgenerar,aristasG)
-
-  grafoBarabasi_.generarArchivoGV('{} {}'.format('Barabasi',str(i)))

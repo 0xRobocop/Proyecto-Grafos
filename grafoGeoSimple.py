@@ -42,14 +42,6 @@ def grafoGeo(n,r):
  
   return g
 
-tareaGrafos = {1:(30,0.3), 2: (100,0.3), 3: (500,0.3)}
 
-for i in range(1,4):
-  nodosAgenerar = tareaGrafos[i][0]
-  r = tareaGrafos[i][1]
-
-  grafoGeo_ = grafoGeo(nodosAgenerar,r)
-
-  grafoGeo_.generarArchivoGV('{} {}'.format('GeoSimple',str(i)))
 
 
