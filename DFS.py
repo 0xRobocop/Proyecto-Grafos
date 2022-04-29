@@ -16,9 +16,9 @@ def DFSR(grafoGenerado, nodoFuente, visitados, grafoDFSR):
   for nodoAdjacente in diccionarioNodos[nodoFuente].atributos['Vecinos']:
     if nodoAdjacente.id not in visitados:
       grafoDFSR.agregarArista('{} -- {}'.format(str(nodoFuente), str(nodoAdjacente.id)),str(nodoFuente),str(nodoAdjacente.id))     
-      visitados,grafoDFSR = DFSR(grafoGenerado, nodoAdjacente.id, visitados, grafoDFSR)
+      grafoDFSR = DFSR(grafoGenerado, nodoAdjacente.id, visitados, grafoDFSR)
 
-  return visitados,grafoDFSR
+  return grafoDFSR
 
 
 def DFSI(grafoGenerado, nodoFuente):
@@ -97,12 +97,12 @@ if __name__ == "__main__":
     emptyGraph5 = Grafo()
     emptyGraph6 = Grafo()
 
-    path1, arbolGeo = DFSR(grafoGeo_, primerNodoMalla,[],emptyGraph1)
-    path2,arbolBarabasi = DFSR(grafoBarabasi_, primerNodoMalla,[],emptyGraph2)
-    path3,arbolDorogovtsev = DFSR(grafoDorogovtsev_, primerNodoMalla,[],emptyGraph3)
-    path4,arbolErdos = DFSR(grafoErdos_, primerNodoMalla,[],emptyGraph4)
-    path5,arbolGilbert = DFSR(grafoGilbert_, primerNodoMalla,[],emptyGraph5)
-    path6,arbolMalla = DFSR(grafoMalla_, primerNodoMalla,[],emptyGraph6)
+    arbolGeo = DFSR(grafoGeo_, primerNodoMalla,[],emptyGraph1)
+    arbolBarabasi = DFSR(grafoBarabasi_, primerNodoMalla,[],emptyGraph2)
+    arbolDorogovtsev = DFSR(grafoDorogovtsev_, primerNodoMalla,[],emptyGraph3)
+    arbolErdos = DFSR(grafoErdos_, primerNodoMalla,[],emptyGraph4)
+    arbolGilbert = DFSR(grafoGilbert_, primerNodoMalla,[],emptyGraph5)
+    arbolMalla = DFSR(grafoMalla_, primerNodoMalla,[],emptyGraph6)
 
     arbolGeo.generarArchivoGV('{} # nodos {}'.format('DFSRGeo',str(nodosGeoSimple)))
     arbolBarabasi.generarArchivoGV('{} # nodos {}'.format('DFSRBarabasi',str(nodosBarabasi)))
