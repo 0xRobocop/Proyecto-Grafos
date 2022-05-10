@@ -3,7 +3,7 @@ from arista import Arista
 
 ATRIBUTO_ARISTAS = 'Aristas'
 ATRIBUTO_VECINOS = 'Vecinos'
-
+ATRIBUTO_DIJKSTRA = 'Dijkstra'
 class Grafo():
 
   def __init__(self):
@@ -25,7 +25,7 @@ class Grafo():
     
     return nodo_
   
-  def agregarArista(self, nombreArista, nombreNodoOrigen, nombreNodoDestino):
+  def agregarArista(self, nombreArista, nombreNodoOrigen, nombreNodoDestino, peso=0):
     """
     Agregar una arista al grafo 
     Se retorna la arista creada
@@ -38,7 +38,7 @@ class Grafo():
       nodoOrigen = self.agregarNodo(nombreNodoOrigen)
       nodoDestino = self.agregarNodo(nombreNodoDestino)
 
-      _arista = Arista(nombreArista,nodoOrigen,nodoDestino) 
+      _arista = Arista(nombreArista,nodoOrigen,nodoDestino,peso) 
       self.aristas[nombreArista] = _arista
 
       nodoOrigen.atributos[ATRIBUTO_VECINOS].append(nodoDestino)
@@ -46,6 +46,8 @@ class Grafo():
 
       nodoOrigen.atributos[ATRIBUTO_ARISTAS].append(_arista)
       nodoDestino.atributos[ATRIBUTO_ARISTAS].append(_arista)
+
+
 
   def dameGradoNodo(self, nombreNodo):
     if not nombreNodo in self.nodos:
@@ -70,10 +72,18 @@ class Grafo():
     file = open('{}{}.gv'.format(self.id, sufijo), 'w')
     file.write('graph #nombre {' + '\n')
     for arista in self.aristas:
-    #  objetoArista = self.aristas[arista]
-    #  nodoInicial = objetoArista.inicio.id
-     # nodoFinal = objetoArista.final.id
       file.write('{};'.format(arista) + '\n')
+    file.write('}')
+    file.close()
+
+
+  def generarArchivoGVDjisktra(self, sufijo):
+    file = open('{}{}.gv'.format(self.id, sufijo), 'w')
+    file.write('graph #nombre {' + '\n')
+    for arista in self.aristas:
+      file.write('{};'.format(arista) + '\n')
+    for nodo in self.nodos:
+      file.write('{} [label="{}"]'.format(nodo,self.nodos[nodo].atributos['Dijkstra']) + '\n')
     file.write('}')
     file.close()
 
