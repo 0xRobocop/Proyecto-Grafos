@@ -23,8 +23,10 @@ def grafoDorogovtsev(numeroNodos):
     nodoInicio = g.aristas[aristaSeleccionada].n0.id
     nodoFinal = g.aristas[aristaSeleccionada].n1.id
     
-    g.agregarArista('{} -- {}'.format(str(nodoAdicional), str(nodoInicio)), str(nodoAdicional), str(nodoInicio))
-    g.agregarArista(str('{} -- {}'.format(str(nodoAdicional), str(nodoFinal))), str(nodoAdicional), str(nodoFinal))
+    peso = (random.random()*100)/10
+    peso2 = (random.random()*100)/10
+    g.agregarArista('{} -- {}'.format(str(nodoAdicional), str(nodoInicio)), str(nodoAdicional), str(nodoInicio),peso)
+    g.agregarArista(str('{} -- {}'.format(str(nodoAdicional), str(nodoFinal))), str(nodoAdicional), str(nodoFinal),peso2)
 
 
 

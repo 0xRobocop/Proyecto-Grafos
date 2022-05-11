@@ -9,7 +9,6 @@ from grafo import Grafo
 
 def dijkstra(grafoFuente, s, t):
         """
-        dijkstra es un algoritmo para encontrar el camino más corto entre nodos en un grafo.
         :param grafoFuente: el grafo original
         :param s: node fuente
         :param t: node objetivo
@@ -36,7 +35,10 @@ def dijkstra(grafoFuente, s, t):
                 break
             for v in diccionarioNodos[u].atributos['Vecinos']:
                 if not descubierto[v.id]:
-                    alt = dist[u] + diccionarioAristas['{} -- {}'.format(u,v.id)].atributos["Peso"]
+                    try:
+                        alt = dist[u] + diccionarioAristas['{} -- {}'.format(u,v.id)].atributos["Peso"]
+                    except: 
+                        alt = dist[u] + diccionarioAristas['{} -- {}'.format(v.id,u)].atributos["Peso"]
                     if alt < dist[v.id]:
                         dist[v.id] = alt
                         prev[v.id] = u
@@ -55,38 +57,9 @@ def dijkstra(grafoFuente, s, t):
             else:
                 break
         return g
-
-def agregarNodo(self, nombre):
-
-    """
-    Si el nodo no existe, lo crea
-    """
-    nodo_ = self.nodos.get(nombre)
-
-    if nodo_ is None:
-      nodo_ = Nodo(nombre)
-      self.nodos[nombre] = nodo_
-
-    
-    return nodo_        
-
-if __name__ == "__main__":
-
-  diccionarioGrafoGeo = {1: (500,0.3)}
   
-  for i in range(1,2):
-    nodosGeoSimple = diccionarioGrafoGeo[i][0]
+
+
     
-    rGeo = diccionarioGrafoGeo[i][1]
-    
-    grafoGeo_ = grafoGeoSimple.grafoGeo(nodosGeoSimple,rGeo)
-    
-    primerNodoGeo = list(grafoGeo_.nodos.keys())[0]
-    segundoNodoGeo = list(grafoGeo_.nodos.keys())[75]
-    
-    print('PrimerNodo: ', primerNodoGeo)
-    print('SegundoNodo: ', segundoNodoGeo)
-    grafoDijkstra = dijkstra(grafoGeo_,primerNodoGeo,segundoNodoGeo)
-  
-    grafoDijkstra.generarArchivoGVDjisktra('{} # nodos {}'.format('DijkstraGeo',str(nodosGeoSimple)))
+
     

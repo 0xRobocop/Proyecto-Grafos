@@ -1,5 +1,5 @@
 from grafo import Grafo
-import numpy
+import random
 
 def grafoMalla(m, n, dirigido=False):
   # m es el numero de filas 
@@ -16,9 +16,11 @@ def grafoMalla(m, n, dirigido=False):
       g.agregarNodo(str(fila * n + columna))
     
       if columna < (n-1):
-        g.agregarArista('{} -- {}'.format(fila * n + columna, fila * n + columna + 1), str(fila * n + columna), str(fila * n + columna + 1))
+        peso = (random.random()*100)/10
+        g.agregarArista('{} -- {}'.format(fila * n + columna, fila * n + columna + 1), str(fila * n + columna), str(fila * n + columna + 1),peso)
       if fila < (m-1):
-        g.agregarArista('{} -- {}'.format(fila * n + columna, (fila+1)* n + columna), str(fila * n + columna), str((fila+1)* n + columna))
+        peso2 = (random.random()*100)/10
+        g.agregarArista('{} -- {}'.format(fila * n + columna, (fila+1)* n + columna), str(fila * n + columna), str((fila+1)* n + columna),peso2)
     
   return g
 
