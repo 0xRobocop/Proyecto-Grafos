@@ -24,7 +24,7 @@ def grafoBarabasi(n,d):
       p = 1 - grado / d 
       if random.random() < p:
         if nodosRandom[j] != i:
-          peso = (random.random()*100)/10
+          peso = (random.random()*100)//1
           g.agregarArista('{} -- {}'.format(str(nodosRandom[j]),str(i)), str(nodosRandom[j]), str(i), peso)
        
   

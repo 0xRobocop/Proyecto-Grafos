@@ -13,7 +13,7 @@ def grafoGilbert(n, probabilidad):
     for j in range(n):
       if random.random() < probabilidad:
         if (j != i):
-          peso = (random.random()*100)/10
+          peso = (random.random()*100)//1
           g.agregarArista('{} -- {}'.format(str(i), str(j)),str(i),str(j),peso)
  
   return g

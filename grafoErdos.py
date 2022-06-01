@@ -13,7 +13,7 @@ def grafoErdos(n,m, dirigido=False, auto=False):
     v = random.randint(0, n-1)
 
     if u != v:
-      peso = (random.random()*100)/10
+      peso = (random.random()*100)//1
       g.agregarArista('{} -- {}'.format(str(u), str(v)),str(u),str(v),peso)
 
 

@@ -1,0 +1,5 @@
+graph #nombre {
+0 -- 11 [label=49.0]
+0 -- 29 [label=70.0]
+119
+}

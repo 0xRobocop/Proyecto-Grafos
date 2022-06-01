@@ -16,6 +16,7 @@ class Nodo:
       ATRIBUTO_ARISTAS: [],
       ATRIBUTO_VECINOS: [],
       ATRIBUTO_POS: numpy.array([random.random(),random.random()]),
-      ATRIBUTO_DIJKSTRA: 0
+      ATRIBUTO_DIJKSTRA: 0,
+      'Descubierto': True
     }
 

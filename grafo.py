@@ -87,3 +87,15 @@ class Grafo():
     file.write('}')
     file.close()
 
+  def generarArchivoGVKruskal(self, sufijo):
+    file = open('{}{}.gv'.format(self.id, sufijo), 'w')
+    file.write('graph #nombre {' + '\n')
+    pesoFinal = 0
+    for arista in self.aristas:
+      peso = self.aristas[arista].atributos["Peso"]
+      pesoFinal += int(peso)
+      file.write('{} [label={}]'.format(arista, self.aristas[arista].atributos["Peso"]) + '\n')
+    file.write(str(pesoFinal) + '\n')
+    file.write('}')
+    file.close()
+

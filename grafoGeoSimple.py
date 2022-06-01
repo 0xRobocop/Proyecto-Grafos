@@ -38,7 +38,7 @@ def grafoGeo(n,r):
         _distancia = distancia(nodoI,nodoF)
 
         if _distancia < r:
-          peso = (random.random()*100)/10
+          peso = (random.random()*100)//1
           g.agregarArista('{} -- {}'.format(str(i), str(j)),str(i),str(j),peso)
  
   return g
