@@ -19,4 +19,8 @@ class Nodo:
       ATRIBUTO_DIJKSTRA: 0,
       'Descubierto': True
     }
+    self.x = 0
+    self.y = 0
+    self.gx = 0
+    self.gy = 0
 

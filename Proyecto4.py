@@ -141,11 +141,11 @@ def Prim(grafoFuente):
 
 if __name__ == "__main__":
 
-  diccionarioGrafoGeo = {1:(50,0.3),2: (250,0.3)}
-  diccionarioGrafoBarabasi = {1:(50,9), 2: (250,9)}
-  diccionarioGrafoDorogovtsev = {1:50, 2: 250}
-  diccionarioGrafoErdos = {1:(50,200), 2: (250,1000)}
-  diccionarioGrafoGilbert = {1:(50,0.02), 2: (250,0.02)}
+  diccionarioGrafoGeo = {1:(50,0.3),2: (100,0.3)}
+  diccionarioGrafoBarabasi = {1:(50,9), 2: (100,9)}
+  diccionarioGrafoDorogovtsev = {1:50, 2: 100}
+  diccionarioGrafoErdos = {1:(50,200), 2: (100,1000)}
+  diccionarioGrafoGilbert = {1:(50,0.02), 2: (100,0.02)}
  
   for i in range(1,3):
     nodosGeoSimple = diccionarioGrafoGeo[i][0]
